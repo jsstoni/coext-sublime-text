@@ -10,10 +10,10 @@ else:
 class coextCommand(sublime_plugin.TextCommand):
 	def run(self, edit):
 		self.code = self.getCode()
-		m = re.search('(?=kudee:)\w.*', self.code)
+		m = re.search('(?=github:)\w.*', self.code)
 		if m:
 			ids = m.group(0)
-			grupo = 'kudee:'
+			grupo = 'github:'
 			urls = ids.replace(grupo, '')
 			with urllib.request.urlopen(urls) as url:
 				data = url.read()
